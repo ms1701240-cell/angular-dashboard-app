@@ -1,0 +1,1 @@
+import{H as e,ca as i}from"./chunk-2I3J3IEK.js";var t=class o{isloading=i(!1);show(){this.isloading.set(!0)}hide(){this.isloading.set(!1)}static \u0275fac=function(a){return new(a||o)};static \u0275prov=e({token:o,factory:o.\u0275fac,providedIn:"root"})};export{t as a};

@@ -1,0 +1,10 @@
+{
+  
+  "stats": [
+    { "id": 1, "title": "Earning", "value": "$ 628" },
+    { "id": 2, "title": "Share", "value": "2434" },
+    { "id": 3, "title": "Likes", "value": "1259" },
+    { "id": 4, "title": "Rating", "value": "8,5" }
+  ]
+
+}
