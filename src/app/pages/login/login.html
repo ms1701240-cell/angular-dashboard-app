@@ -1,0 +1,49 @@
+<div class="isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
+  <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+    <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-1/2 -z-10 aspect-1155/678 w-144.5 max-w-none -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-40rem)] sm:w-288.75"></div>
+  </div>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">Login Page</h2>
+    
+  </div>
+ 
+  <form [formGroup]="forms" (ngSubmit)="Login()" action="#" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div class="sm:col-span-2">
+        <label for="username" class="block text-sm/6 font-semibold text-white">Username</label>
+        <div class="mt-2.5">
+          <input formControlName="username" id="username" type="text" name="username" autocomplete="username" class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" />
+           @if (forms.get('username')?.invalid&&forms.get('username')?.touched) {
+                 <p class="text-red-500"> enter username please</p>
+           }
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="password" class="block text-sm/6 font-semibold text-white">Password</label>
+        <div class="mt-2.5">
+          <input formControlName="password" id="password" type="password" name="password" autocomplete="email" class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" />
+          @if (forms.get('password')?.invalid&&forms.get('password')?.touched) {
+            <p class="text-red-500"> enter password please</p>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 flex flex-col  items-center">
+        @if (isloading.isloading()) {
+<div class="flex gap-2" role="status" aria-label="Loading">
+  <span class="size-3 animate-pulse rounded-full bg-indigo-600" aria-hidden="true"></span>
+  <span
+    class="size-3 animate-pulse rounded-full bg-indigo-600 [animation-delay:0.2s]"
+    aria-hidden="true"
+  ></span>
+  <span
+    class="size-3 animate-pulse rounded-full bg-indigo-600 [animation-delay:0.4s]"
+    aria-hidden="true"
+  ></span>
+</div>
+  }@else {
+     <button type="submit" class="block w-full rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">LOGIN</button>
+  }
+    </div>
+  </form>
+</div>

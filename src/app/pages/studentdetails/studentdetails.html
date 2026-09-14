@@ -1,0 +1,37 @@
+<div>
+  
+  <a [routerLink]="['/students']"
+  class="inline-flex items-center justify-center rounded-full border border-indigo-600 bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:ring-4 focus-visible:ring-indigo-200 focus-visible:outline-none"
+  href="#"
+>
+  GO BACK
+</a>
+</div>
+
+<div class="p-8 bg-white rounded-2xl shadow-xl max-w-xl mx-auto border border-gray-100">
+    <div class="flex flex-col items-center text-center">
+
+      <img [src]="student()?.image" class="w-32 h-32 rounded-full border-4 border-indigo-500 object-cover shadow-md mb-4" alt="student image">
+      
+      
+      <h1 class="text-3xl font-bold text-gray-800">{{ student()?.fullName}}</h1>
+      
+    </div>
+
+   
+    <div class="mt-8 space-y-4 border-t border-gray-100 pt-6 text-gray-700">
+      <div class="flex justify-between items-center bg-gray-50 p-3 rounded-xl">
+        <span class="font-bold text-gray-500">البريد الإلكتروني:</span>
+        <span>{{ student()?.email }}</span>
+      </div>
+
+      <div class="flex justify-between items-center bg-gray-50 p-3 rounded-xl">
+        <span class="font-bold text-gray-500">الهاتف:</span>
+        <span>{{ student()?.phone }}</span>
+      </div>
+      <div class="flex justify-between items-center bg-gray-50 p-3 rounded-xl">
+        <span class="font-bold text-gray-500">العنوان:</span>
+        <span>{{ student()?.address }}</span>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,58 @@
+<div class="p-6 bg-white rounded-lg shadow space-y-6">
+  <h2 class="text-xl font-bold mb-4 border-b pb-2">Review Information Before Submission</h2>
+
+ 
+  <div class="p-4 bg-gray-50 rounded-lg border">
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="font-semibold text-blue-600">Student Information</h3>
+      <button type="button" (click)="oneditnum(1)" class="text-sm text-indigo-600 hover:underline font-medium">
+        Edit ✏️
+      </button>
+    </div>
+    <p><span class="font-medium">Full Name:</span> {{ GrandForms().value.student.fullName }}</p>
+    <p><span class="font-medium">Date of Birth:</span> {{ GrandForms().value.student.dateOfBirth }}</p>
+    <p><span class="font-medium">Grade:</span> {{ GrandForms().value.student.grade }}</p>
+    <p><span class="font-medium">Gender:</span> {{ GrandForms().value.student.gender }}</p>
+  </div>
+
+ 
+  <div class="p-4 bg-gray-50 rounded-lg border">
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="font-semibold text-blue-600">Parent Information</h3>
+      <button type="button" (click)="oneditnum(2)" class="text-sm text-indigo-600 hover:underline font-medium">
+        Edit ✏️
+      </button>
+    </div>
+    <p><span class="font-medium">Parent Name:</span> {{ GrandForms().value.Parent.parentName }}</p>
+    <p><span class="font-medium">Phone Number:</span> {{ GrandForms().value.Parent.phone }}</p>
+    <p><span class="font-medium">Email Address:</span> {{ GrandForms().value.Parent.email }}</p>
+    <p><span class="font-medium">Address:</span> {{ GrandForms().value.Parent.adrees }}</p>
+    <p><span class="font-medium">Relationship:</span> {{ GrandForms().value.Parent.relationship }}</p>
+  </div>
+
+ 
+  <div class="p-4 bg-gray-50 rounded-lg border">
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="font-semibold text-blue-600">Medical Information</h3>
+      <button type="button" (click)="oneditnum(3)" class="text-sm text-indigo-600 hover:underline font-medium">
+        Edit ✏️
+      </button>
+    </div>
+    <p><span class="font-medium">Blood Type:</span> {{ GrandForms().value.medical.bloodType }}</p>
+    <p><span class="font-medium">Emergency Contact:</span> {{ GrandForms().value.medical.emergencyContact }}</p>
+    <p><span class="font-medium">Allergies:</span> {{ GrandForms().value.medical.alleriges }}</p>
+    <p><span class="font-medium">Medical Notes:</span> {{ GrandForms().value.medical.medicalnotes }}</p>
+  </div>
+
+  
+  <div class="p-4 bg-gray-50 rounded-lg border">
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="font-semibold text-blue-600">Required Documents</h3>
+      <button type="button" (click)="oneditnum(4)" class="text-sm text-indigo-600 hover:underline font-medium">
+        Edit ✏️
+      </button>
+    </div>
+    <p class="text-sm text-green-600 font-medium">✓ All required documents uploaded successfully</p>
+  </div>
+
+</div>

@@ -1,0 +1,22 @@
+ <div>
+    @if(isloading()) {
+        <div class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+            <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32"></div>
+        </div>
+    }@else if (userinf()) {
+       <div class="profile-card">
+      <div class="profile-header">
+        <img [src]="userinf()?.image" alt="User Avatar" class="avatar">
+        <h2>أهلاً بك، {{ userinf()?.firstName }} {{ userinf()?.lastName }}! 👋</h2>
+      </div>
+
+      <div class="profile-details">
+        <p><strong>اسم المستخدم:</strong> {{ userinf()?.username }}</p>
+        <p><strong>البريد الإلكتروني:</strong> {{ userinf()?.email }}</p>
+        <p><strong>رقم الكود (ID):</strong> {{ userinf()?.id }}</p>
+      </div>
+    </div>
+    }
+ </div>
+ 
+

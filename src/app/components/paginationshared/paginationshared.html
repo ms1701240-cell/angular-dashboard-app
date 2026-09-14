@@ -1,0 +1,26 @@
+<div class="w-full flex items-center justify-center p-4">
+  <div class="flex items-center justify-center gap-3 max-w-xs w-full">
+    
+    <!-- Previous Button -->
+    <button 
+      class="flex-1 py-2 px-4 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs sm:text-sm font-medium rounded-lg disabled:opacity-40 disabled:cursor-not-allowed shadow-md transition-all cursor-pointer text-center" 
+      [disabled]="currentpage() === 1" 
+      (click)="currentpage.update(p => p - 1)">
+      Previous
+    </button>
+
+    <!-- Page Indicator -->
+    <span class="text-xs sm:text-sm font-semibold text-white whitespace-nowrap bg-gray-800/60 px-3 py-1.5 rounded-md border border-white/10">
+      Page {{currentpage()}}
+    </span>
+
+    <!-- Next Button -->
+    <button 
+      class="flex-1 py-2 px-4 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs sm:text-sm font-medium rounded-lg disabled:opacity-40 disabled:cursor-not-allowed shadow-md transition-all cursor-pointer text-center" 
+      [disabled]="islastpage()" 
+      (click)="currentpage.update(p => p + 1)">
+      Next
+    </button>
+
+  </div>
+</div>

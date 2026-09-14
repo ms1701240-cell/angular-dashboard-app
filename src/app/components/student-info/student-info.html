@@ -1,0 +1,68 @@
+<div [formGroup]="GrandForm()">
+  <div formGroupName="student" class="space-y-4">
+    <h2 class="text-xl font-bold mb-4 text-gray-900">1. Student Information</h2>
+
+    
+    <div>
+      <label class="block mb-2 text-sm font-medium text-gray-900">Full Name</label>
+      <input 
+        type="text" 
+        formControlName="fullName" 
+        class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+        placeholder="Enter student full name"
+      >
+      @if (GrandForm().get('student.fullName')?.invalid && GrandForm().get('student.fullName')?.touched) {
+        <span class="text-red-500 text-xs mt-1 block">Full name is required</span>
+      }
+    </div>
+
+    
+    <div>
+      <label class="block mb-2 text-sm font-medium text-gray-900">Date of Birth</label>
+      <input 
+        type="date" 
+        formControlName="dateOfBirth" 
+        class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+      >
+      @if (GrandForm().get('student.dateOfBirth')?.invalid && GrandForm().get('student.dateOfBirth')?.touched) {
+        <span class="text-red-500 text-xs mt-1 block">Date of birth is required</span>
+      }
+    </div>
+
+    
+    <div>
+      <label class="block mb-2 text-sm font-medium text-gray-900">Grade</label>
+      <select 
+        formControlName="grade" 
+        class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+      >
+        <option value="">Select Grade</option>
+        <option value="1">Grade 1</option>
+        <option value="2">Grade 2</option>
+        <option value="3">Grade 3</option>
+        <option value="4">Grade 4</option>
+       
+      </select>
+      @if (GrandForm().get('student.grade')?.invalid && GrandForm().get('student.grade')?.touched) {
+        <span class="text-red-500 text-xs mt-1 block">Grade is required</span>
+      }
+    </div>
+
+    
+    <div>
+      <label class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
+      <select 
+        formControlName="gender" 
+        class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+      >
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      @if (GrandForm().get('student.gender')?.invalid && GrandForm().get('student.gender')?.touched) {
+        <span class="text-red-500 text-xs mt-1 block">Gender is required</span>
+      }
+    </div>
+
+  </div>
+</div>

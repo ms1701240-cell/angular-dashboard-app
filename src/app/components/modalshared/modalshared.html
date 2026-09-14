@@ -1,0 +1,26 @@
+@if (ismodelopen()) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-gray-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] my-auto">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center bg-blue-600 px-4 sm:px-6 py-3.5 text-white">
+        <h3 class="font-bold text-base sm:text-lg">{{ title() }}</h3>
+        <button type="button" (click)="closemodel()" class="text-white hover:text-gray-200 text-xl font-bold cursor-pointer">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-4 sm:p-6 overflow-y-auto flex-1 bg-gray-900">
+        <ng-content></ng-content>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="flex justify-end gap-2 sm:gap-3 px-4 sm:px-6 py-3 bg-gray-800 border-t border-gray-700">
+        <button type="button" (click)="closemodel()" class="px-3.5 sm:px-4 py-2 bg-gray-600 text-white rounded-xl text-xs sm:text-sm font-bold hover:bg-gray-500 cursor-pointer transition-colors">
+          Close
+        </button>
+        <button type="submit" (click)="trriggersave()" class="px-3.5 sm:px-4 py-2 bg-teal-500 text-white rounded-xl text-xs sm:text-sm font-bold hover:bg-teal-600 cursor-pointer transition-colors">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+}

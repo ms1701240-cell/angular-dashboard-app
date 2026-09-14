@@ -1,0 +1,27 @@
+<ol class="flex items-center justify-between p-4 text-xs sm:text-sm font-medium text-center text-body bg-gray-200 dark:bg-blue-950 w-[calc(100%-40px)] mx-auto rounded-3xl shadow-2xl">
+  
+  @for (step of steps; track step.number; let last = $last) {
+    <li class="flex items-center">
+      <div class="flex items-center">
+        
+        
+        <span class="step-circle"
+              [class.step-completed]="currentstep() > step.number"
+              [class.step-active]="currentstep() === step.number"
+              [class.step-pending]="currentstep() < step.number">
+          @if (currentstep() > step.number) { ✓ } @else { {{ step.number }} }
+        </span>
+        
+        <span>{{ step.title }}</span>
+      </div>
+
+      
+      @if (!last) {
+        <svg class="w-4 h-4 mx-3 rtl:rotate-180 shrink-0 opacity-70" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 16 4-4-4-4m6 8 4-4-4-4"/>
+        </svg>
+      }
+    </li>
+  }
+
+</ol>

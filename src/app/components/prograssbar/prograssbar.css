@@ -1,0 +1,15 @@
+ @import "tailwindcss";
+ .step-circle{
+    @apply flex items-center justify-center w-6 h-6 me-2 text-xs border rounded-full shrink-0 font-bold transition-all duration-300;
+}
+.step-completed {
+  @apply bg-green-500 text-white border-green-500 shadow-md;
+}
+
+.step-active {
+  @apply border-blue-600 text-blue-600 bg-blue-50 font-bold;
+}
+
+.step-pending {
+  @apply border-gray-300 text-gray-400 bg-white;
+}
