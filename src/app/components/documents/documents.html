@@ -4,8 +4,8 @@
         
     <!-- Student Photo -->
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Student Photo</label>
-      <input type="file" formControlName="studentPhoto" class="w-full p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800">
+      <label class="block mb-2 md:mx-0 mx-7 text-sm font-medium text-gray-900">Student Photo</label>
+      <input type="file" formControlName="studentPhoto" class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800">
       @if (GrandForm().get('documents.studentPhoto')?.invalid && GrandForm().get('documents.studentPhoto')?.touched) {
         <small class="text-red-600 block mt-1">Student photo is required.</small>
       }
@@ -13,8 +13,8 @@
 
     <!-- Birth Certificate -->
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Birth Certificate</label>
-      <input type="file" formControlName="BirthCertificate" class="w-full p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800">
+      <label class="block mb-2 text-sm md:mx-0 mx-7 font-medium text-gray-900">Birth Certificate</label>
+      <input type="file" formControlName="BirthCertificate" class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800">
       @if (GrandForm().get('documents.BirthCertificate')?.invalid && GrandForm().get('documents.BirthCertificate')?.touched) {
         <small class="text-red-600 block mt-1">Birth certificate is required.</small>
       }
@@ -22,8 +22,8 @@
 
     
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Parent ID</label>
-      <input type="file" formControlName="parentid" class="w-full p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800">
+      <label class="block mb-2 text-sm font-medium md:mx-0 mx-7 text-gray-900">Parent ID</label>
+      <input type="file" formControlName="parentid" class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800">
       @if (GrandForm().get('documents.parentid')?.invalid && GrandForm().get('documents.parentid')?.touched) {
         <small class="text-red-600 block mt-1">Parent ID is required.</small>
       }

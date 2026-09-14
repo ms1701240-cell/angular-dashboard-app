@@ -2,76 +2,76 @@
 
 <form [formGroup]="registerationform"
   action="#"
-  class="mx-auto mt-5 max-w-md space-y-4 rounded-lg border border-gray-300 bg-gray-100 p-6"
+  class="mx-auto mt-4 sm:mt-5 w-full max-w-xl space-y-4 rounded-lg border border-gray-300 bg-gray-100 p-4 sm:p-6 shadow-sm"
 >
 @if(showerror()){
-<div class="p-4 mb-4 z-50 text-sm text-red-800 rounded-lg bg-red-50 border border-red-300 flex items-center justify-between transition-all">
-      <span>⚠️ Please fill in all required fields in this step before proceeding.</span>
-      <button type="button" (click)="showerror.set(false)" class="text-red-800 font-bold ml-2">✕</button>
-    </div>
-}
-@if (isloading.isloading()) {
-<div class="flex flex-col items-center justify-center p-6 bg-blue-50 border border-blue-200 rounded-lg my-4 space-y-3">
-   
-    <div class="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-    <p class="text-blue-700 font-medium text-sm">جاري حفظ وتسجيل بيانات الطالب، برجاء الانتظار...</p>
+  <div class="p-3 sm:p-4 mb-4 z-50 text-xs sm:text-sm text-red-800 rounded-lg bg-red-50 border border-red-300 flex items-center justify-between transition-all">
+    <span>⚠️ Please fill in all required fields in this step before proceeding.</span>
+    <button type="button" (click)="showerror.set(false)" class="text-red-800 font-bold ml-2">✕</button>
   </div>
 }
+
+@if (isloading.isloading()) {
+  <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-blue-50 border border-blue-200 rounded-lg my-4 space-y-3 text-center">
+    <div class="w-8 h-8 sm:w-10 sm:h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+    <p class="text-blue-700 font-medium text-xs sm:text-sm">جاري حفظ وتسجيل بيانات الطالب، برجاء الانتظار...</p>
+  </div>
+}
+
 @if (sucessmessage()) {
-  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in">
-    <div class="bg-white border border-green-200 shadow-2xl rounded-2xl p-6 max-w-sm w-full mx-4 flex flex-col items-center text-center space-y-3 transform transition-all scale-100">
-      
-      
-      <div class="w-14 h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-2xl font-bold shadow-inner">
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in p-4">
+    <div class="bg-white border border-green-200 shadow-2xl rounded-2xl p-6 max-w-sm w-full mx-auto flex flex-col items-center text-center space-y-3 transform transition-all scale-100">
+      <div class="w-12 h-12 sm:w-14 sm:h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold shadow-inner">
         ✓
       </div>
-
-      
-      <h3 class="text-xl font-bold text-gray-800">تم التسجيل بنجاح!</h3>
-      <p class="text-sm text-gray-600">جاري توجيهك إلى قائمة الطلاب...</p>
-
-      
+      <h3 class="text-lg sm:text-xl font-bold text-gray-800">تم التسجيل بنجاح!</h3>
+      <p class="text-xs sm:text-sm text-gray-600">جاري توجيهك إلى قائمة الطلاب...</p>
       <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden mt-2">
         <div class="bg-green-500 h-full animate-pulse w-full"></div>
       </div>
-
     </div>
   </div>
 }
-@if(currentstep()===1){
-    <app-student-info [GrandForm]="registerationform"></app-student-info>
+
+<!-- Dynamic Step Components -->
+@if(currentstep() === 1){
+  <app-student-info [GrandForm]="registerationform"></app-student-info>
 }
 
 @if (currentstep() === 2) {
-    <app-parent-info [GrandForm]="registerationform"></app-parent-info>
+  <app-parent-info [GrandForm]="registerationform"></app-parent-info>
 }
-
-
 
 @if (currentstep() === 3) {
-    <app-medical-info [GrandForm]="registerationform"></app-medical-info>
+  <app-medical-info [GrandForm]="registerationform"></app-medical-info>
 }
+
 @if (currentstep() === 4) {
-   <app-documents [GrandForm]="registerationform"></app-documents>
+  <app-documents [GrandForm]="registerationform"></app-documents>
 }
+
 @if (currentstep() === 5) {
   <app-review [GrandForms]="registerationform" (editStep)="oneditstep($event)"></app-review>
 }
-    <div class="flex justify-between mt-8 pt-4 border-t">
-        @if (currentstep() > 1) {
-            <button type="button" (click)="PrevStep()" class="px-5 py-2.5 bg-gray-300 dark:bg-gray-700 rounded-lg font-medium">
-                السابق
-            </button>
-        } 
 
-        @if (currentstep() < 5) {
-            <button type="button" (click)="NextStep()" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium">
-                التالي
-            </button>
-        } @else {
-            <button (click)="onsubmit()"  type="submit" class="px-5 py-2.5 bg-green-600 text-white rounded-lg font-medium">
-                إرسال الطلب
-            </button>
-        }
-    </div>
+<!-- Navigation Buttons -->
+<div class="flex items-center justify-between md:mx-0 mx-4 mt-6 sm:mt-8 pt-4 border-t gap-2">
+  @if (currentstep() > 1) {
+    <button type="button" (click)="PrevStep()" class="px-4 sm:px-5 py-2 sm:py-2.5 bg-gray-300 dark:bg-gray-700 rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-400 transition-colors">
+      السابق
+    </button>
+  } @else {
+    <div></div>
+  }
+
+  @if (currentstep() < 5) {
+    <button type="button" (click)="NextStep()" class="px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-600 text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-700 transition-colors">
+      التالي
+    </button>
+  } @else {
+    <button (click)="onsubmit()" type="submit" class="px-4 sm:px-5 py-2 sm:py-2.5 bg-green-600 text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-green-700 transition-colors">
+      إرسال الطلب
+    </button>
+  }
+</div>
 </form>

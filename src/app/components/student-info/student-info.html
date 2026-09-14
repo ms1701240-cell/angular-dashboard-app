@@ -8,7 +8,7 @@
       <input 
         type="text" 
         formControlName="fullName" 
-        class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+        class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
         placeholder="Enter student full name"
       >
       @if (GrandForm().get('student.fullName')?.invalid && GrandForm().get('student.fullName')?.touched) {
@@ -18,11 +18,11 @@
 
     
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Date of Birth</label>
+      <label class="block mb-2 md:mx-0 mx-7 text-sm font-medium text-gray-900">    Birth</label>
       <input 
         type="date" 
         formControlName="dateOfBirth" 
-        class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+        class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
       >
       @if (GrandForm().get('student.dateOfBirth')?.invalid && GrandForm().get('student.dateOfBirth')?.touched) {
         <span class="text-red-500 text-xs mt-1 block">Date of birth is required</span>
@@ -31,10 +31,10 @@
 
     
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Grade</label>
+      <label class="block mb-2 md:mx-0 mx-6 text-sm font-medium text-gray-900">Grade</label>
       <select 
         formControlName="grade" 
-        class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+        class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
       >
         <option value="">Select Grade</option>
         <option value="1">Grade 1</option>
@@ -50,10 +50,10 @@
 
     
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
+      <label class="block mb-2 md:mx-0 mx-6 text-sm font-medium text-gray-900">Gender</label>
       <select 
         formControlName="gender" 
-        class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+        class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
       >
         <option value="">Select Gender</option>
         <option value="Male">Male</option>

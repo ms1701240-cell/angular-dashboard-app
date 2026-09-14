@@ -1,11 +1,11 @@
 <div [formGroup]="GrandForm()" class="mx-auto mt-5 max-w-md space-y-4 rounded-lg border border-gray-300 bg-gray-100 p-6">
   <div formGroupName="medical" class="space-y-4">
-    <h2 class="text-xl font-bold mb-4 text-gray-900">3. Medical Information</h2>
+    <h2 class="text-xl font-bold mb-4 md:mx-0 mx-7 text-gray-900">3. Medical Information</h2>
     
     <!-- Blood Type -->
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Blood Type</label>
-      <input type="text" formControlName="bloodType" class="w-full p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800 focus:border-indigo-500 focus:outline-none" placeholder="e.g. O+, A+">
+      <label class="block mb-2 text-sm md:mx-0 mx-7 font-medium text-gray-900">Blood Type</label>
+      <input type="text" formControlName="bloodType" class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800 focus:border-indigo-500 focus:outline-none" placeholder="e.g. O+, A+">
       @if (GrandForm().get('medical.bloodType')?.invalid && GrandForm().get('medical.bloodType')?.touched) {
         <small class="text-red-600 block mt-1">Blood type is required.</small>
       }
@@ -13,8 +13,8 @@
 
     <!-- Allergies -->
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Allergies</label>
-      <input type="text" formControlName="alleriges" class="w-full p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800 focus:border-indigo-500 focus:outline-none" placeholder="Any allergies (or None)">
+      <label class="block mb-2 md:mx-0 mx-7 text-sm font-medium text-gray-900">Allergies</label>
+      <input type="text" formControlName="alleriges" class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800 focus:border-indigo-500 focus:outline-none" placeholder="Any allergies (or None)">
       @if (GrandForm().get('medical.alleriges')?.invalid && GrandForm().get('medical.alleriges')?.touched) {
         <small class="text-red-600 block mt-1">Allergies is required.</small>
       }
@@ -22,8 +22,8 @@
 
     <!-- Medical Notes -->
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Medical Notes</label>
-      <textarea formControlName="medicalnotes" class="w-full p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800 focus:border-indigo-500 focus:outline-none" placeholder="Any chronic conditions or notes"></textarea>
+      <label class="block mb-2 text-sm md:mx-0 mx-7 font-medium text-gray-900">Medical Notes</label>
+      <textarea formControlName="medicalnotes" class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800 focus:border-indigo-500 focus:outline-none" placeholder="Any chronic conditions or notes"></textarea>
       @if (GrandForm().get('medical.medicalnotes')?.invalid && GrandForm().get('medical.medicalnotes')?.touched) {
         <small class="text-red-600 block mt-1">Medical notes is required.</small>
       }
@@ -31,8 +31,8 @@
 
     <!-- Emergency Contact -->
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900">Emergency Contact</label>
-      <input type="text" formControlName="emergencyContact" class="w-full p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800 focus:border-indigo-500 focus:outline-none" placeholder="Emergency phone number">
+      <label class="block mb-2 md:mx-0 mx-7 text-sm font-medium text-gray-900">Emergency Contact</label>
+      <input type="text" formControlName="emergencyContact" class="w-full md:mx-0 mx-3 p-2.5 border border-gray-300 rounded-lg dark:bg-gray-800 focus:border-indigo-500 focus:outline-none" placeholder="Emergency phone number">
       @if (GrandForm().get('medical.emergencyContact')?.invalid && GrandForm().get('medical.emergencyContact')?.touched) {
         <small class="text-red-600 block mt-1">Emergency contact is required.</small>
       }
