@@ -68,7 +68,7 @@ export class Students implements OnInit {
     grade: ['', [Validators.required]],
     phone: ['', [Validators.required, Validators.minLength(11)]],
     age: ['', [Validators.required, Validators.min(5)]],
-    classroom: ['', [Validators.required,Validators.maxLength(2),Validators.pattern(/^[1-2][a-d]$/)]],
+    classroom: ['', [Validators.required,Validators.maxLength(2),Validators.pattern(/^[1-4][a-d]$/)]],
     address: ['', [Validators.required]]
   });
 
