@@ -68,41 +68,43 @@ export class Students implements OnInit {
     grade: ['', [Validators.required]],
     phone: ['', [Validators.required, Validators.minLength(11)]],
     age: ['', [Validators.required, Validators.min(5)]],
-    classroom: ['', [Validators.required,Validators.maxLength(2),Validators.pattern(/^[1-4][a-d]$/)]],
+    classroom: ['', [Validators.required,Validators.maxLength(2),Validators.pattern(/^[1-2][a-d]$/)]],
     address: ['', [Validators.required]]
   });
 
   notify = inject(Datanotification);
 
-  onsubmit() {
+ onsubmit() {
     if (this.studentforms.valid) {
       const formdata = this.studentforms.value;
+      
       if (this.editid()) {
+        // --- 1. حالة التعديل (Edit) ---
         const id = this.editid()!;
-        this.service.update(id, formdata).subscribe({
-          next: () => {
-            this.students.update((list) => {
-              const newList = list.map(s => s.id === id ? { ...s, ...formdata } : s);
-              localStorage.setItem('students', JSON.stringify(newList));
-              return newList;
-            });
-            this.message.set('edit sucess');
-            setTimeout(() => this.message.set(''), 2000);
-            this.notify.addnotification('Student Updated Profile', `تم تحديث بيانات الطالب ${formdata.fullName} بنجاح`);
-            this.closemodel();
-          },
-          error: (err) => {
-            this.message.set('edit failed');
-            setTimeout(() => this.message.set(''), 2000);
-          }
+        this.students.update((list) => {
+          const newList = list.map(s => s.id === id ? { ...s, ...formdata } : s);
+          localStorage.setItem('students', JSON.stringify(newList));
+          return newList;
         });
+        
+        this.message.set('edit success');
+        setTimeout(() => this.message.set(''), 2000);
+        this.notify.addnotification('Student Updated Profile', `تم تحديث بيانات الطالب ${formdata.fullName} بنجاح`);
+        this.closemodel();
+
+        // (اختياري) لو حابب تبعت للـ API في الخلفية من غير ما يعطل الحفظ المحلي
+        this.service.update(id, formdata).subscribe({
+          error: (err) => console.log("API Fake Error Ignored:", err)
+        });
+
       } else {
+        // --- 2. حالة الإضافة (Create) ---
         this.service.create(formdata).subscribe({
           next: (responsestudent) => {
             const newstudent = {
               ...responsestudent,
               status: 'Active', 
-              createdAt: new Date().toLocaleDateString(),       
+              createdAt: new Date().toLocaleDateString(),      
               image: 'https://picsum.photos/150'
             };
 
@@ -124,11 +126,11 @@ export class Students implements OnInit {
           }
         });
       }
+
     } else {
       this.studentforms.markAllAsTouched();
     }
   }
-
   closemodel() {
     this.ismodalopen.set(false);
     this.editid.set(null);
