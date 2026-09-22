@@ -17,8 +17,17 @@ teacher=signal<TeacherModel|null>(null);
 ngOnInit(): void {
   const teacherid=this.id();
   if(teacherid){
+    const localdata=localStorage.getItem('teacher');
+    if(localdata){
+      const teacherlist:TeacherModel[]=JSON.parse(localdata);
+      const founddata=teacherlist.find(s=>s.id===Number(teacherid))
+      if(founddata){
+        this.teacher.set(founddata);
+        return;
+      }
+    }
     this.service.getAll().subscribe((data)=>{
-      const foundteacher=data.find(s=>s.id==Number(teacherid))
+      const foundteacher=data.find(s=>s.id===Number(teacherid))
       if(foundteacher){
         this.teacher.set(foundteacher);
       }

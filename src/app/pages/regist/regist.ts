@@ -37,7 +37,8 @@ export class Regist {
       fullName: ['', [Validators.required, Validators.minLength(12)]],
       dateOfBirth: ['', Validators.required],
       grade: ['', Validators.required],
-      gender: ['', Validators.required]
+      gender: ['', Validators.required],
+      
     }),
     Parent: this.fb.group({
       parentName: ['', Validators.required],
@@ -92,7 +93,13 @@ export class Regist {
       this.isloading.show();
       const formData: RegistrationApplication = this.registerationform.value;
 
-      
+      const birthDate=new Date(formData.student.dateOfBirth);
+      const today=new Date();
+      let calculateage=today.getFullYear()-birthDate.getFullYear();
+      const m=today.getMonth()-birthDate.getMonth();
+      if(m<0||m===0&&today.getDate()-birthDate.getDate()<0){
+        calculateage--;
+      }
       this.registrationService.submitApplication(formData).subscribe({
         next: (response: RegistrationApplication) => {
           
@@ -104,8 +111,8 @@ export class Regist {
             phone: formData.Parent.phone,
             address: formData.Parent.adrees,
             grade: formData.student.grade, 
-            age: 10,
-            classroom: 'Class A',
+            age: calculateage,
+            classroom: `{class${formData.student.grade}A`,
             status: 'Active',
             createdAt: new Date().toLocaleDateString(),
             image: 'https://picsum.photos/150'

@@ -3,6 +3,7 @@ export interface StudentInfo {
   dateOfBirth: string;
   grade: number;
   gender: string;
+  
 }
 
 export interface ParentInfo {

@@ -3,6 +3,7 @@ import {  RouterLink } from '@angular/router';
 import { Studentsservices } from '../../core/services/studentsserv.services';
 import { Student } from '../../core/Models/students.model';
 
+
 @Component({
   selector: 'app-studentdetails',
   imports: [RouterLink],
@@ -16,6 +17,15 @@ export class Studentdetails implements OnInit {
 ngOnInit(): void {
  const studentid=this.id()
   if(studentid){
+    const localdata=localStorage.getItem('students');
+    if(localdata){
+      const studentslist: Student[]=JSON.parse(localdata);
+      const founddata=studentslist.find(s=>s.id===Number(studentid))
+      if(founddata){
+        this.student.set(founddata);
+        return;
+      }
+    }
     this.service.getAll().subscribe((data)=>{
       const foundstudents=data.find(s=>s.id==Number(studentid));
       if(foundstudents){
